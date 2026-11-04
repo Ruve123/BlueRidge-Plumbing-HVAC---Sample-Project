@@ -1,0 +1,27 @@
+/* The few WordPress core block styles the theme CSS relies on. Imported BEFORE globals.css so the theme wins. */
+
+/* Flow layout gap (theme.json blockGap) */
+:where(.is-layout-flow) > * { margin-block: 1.25rem 0; }
+:where(.is-layout-flow) > :first-child { margin-block-start: 0; }
+
+/* Columns */
+.wp-block-columns { display: flex; flex-wrap: wrap !important; align-items: normal; box-sizing: border-box; }
+@media (min-width: 782px) { .wp-block-columns { flex-wrap: nowrap !important; } }
+.wp-block-column { flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; }
+@media (max-width: 781px) { .wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column { flex-basis: 100% !important; } }
+@media (min-width: 782px) { .wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column { flex-basis: 0; flex-grow: 1; } }
+
+/* Buttons */
+.wp-block-buttons { display: flex; flex-wrap: wrap; align-items: center; box-sizing: border-box; }
+.wp-block-button__link { display: inline-block; box-sizing: border-box; text-align: center; word-break: break-word; cursor: pointer; }
+
+/* Lists / details / headings */
+.wp-block-list { box-sizing: border-box; }
+.wp-block-details { box-sizing: border-box; }
+.wp-block-details summary { cursor: pointer; }
+
+/* Colour presets (WordPress emits these with !important) */
+.has-white-color { color: #fff !important; }
+.has-ink-color { color: #0b1b3a !important; }
+.has-primary-background-color { background-color: var(--c-primary) !important; }
+.has-accent-background-color { background-color: var(--c-accent) !important; }
